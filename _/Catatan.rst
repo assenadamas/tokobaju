@@ -1,3 +1,6 @@
+=========================================================================================================================
+Step 1
+=========================================================================================================================
 Tedapat dua direktori penting di dalam CI: 📁 application dan 📁 system. 
 Selain itu terdapat juga direktori 📁 user_guide dan beberapa file. Berikut ini penjelasannya:
 
@@ -44,3 +47,24 @@ Selanjutnya silahkan buka direktori 📁 application dan perhatikan direktori ya
 📁 thrid_party => berisi library dari pihak ketiga.
 📁 views => berisi kode untuk view.
 📄 index.html file html untuk mencegah direct access.
+
+=========================================================================================================================
+Step 2
+=========================================================================================================================
+# Mengenal Konsep MVC pada Codeigniter
+MVC (Model, View, Controller) adalah sebuah pola desain (design pattern) arsitektur pengembangan aplikasi yang memisahkan dan mengelompokan beberapa kode sesuai degan fungsinya.
+
+# MVC membagi aplikasi ke dalam tiga bagian fungsional: model, view, dan controller.
+1.Model adalah kode-kode untuk model bisnis dan data. biasanya berhubungan langsung dengan database untuk memanipulasi data (insert, update, delete, search), menangani validasi dari bagian controller, namun tidak dapat berhubungan langsung dengan bagian view.
+2.View merupakan bagian yang menangani presentation logic. berisi kode-kode untuk tampilan.
+3.Controller merupakan bagian yang mengatur hubungan antara bagian model dan bagian view, controller berfungsi untuk menerima request dan data dari user kemudian menentukan apa yang akan diproses oleh aplikasi.
+
+# Alur kerjanya seperti :
+1.Mulai;
+2.User mengirim request ke web;
+3.File yang pertama kali dieksekusi adalah index.php;
+4.Lalu dari index.php, request akan diteruskan oleh routers.php;
+5.routers.php akan mencari cache di server, apabila tedapat cache maka cache itu yang akan dikirim sebagai balasan (response). Apabila tidak ada cache barulah request diteruskan ke Controller;
+6.Controller akan bertanggunag jawab untuk mengambil data dari Model dan me-rendernya ke dalam View dengan menggunakan library, plugin, dan helper yang ada.
+7.Hasil render (view) dikirim ke pengguna dan disimpan dalam cache, apabila fitur cache aktif;
+8.Selesai.

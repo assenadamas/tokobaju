@@ -41,6 +41,16 @@ class Product_model extends CI_Model {
         return $this->db->get_where($this->_table, ["product_id" => $id])->row();
     }
 
+    public function save()
+    {
+        $post = $this->input->post();
+        $this->product_id = uniqid();
+        $this->name = $post["name"];
+        $this->price = $post["price"];
+        $this->description = $post["description"];
+        $this->db->insert($this->_table, $this);
+    }
+
 }
 
 /* End of file Product_model.php */

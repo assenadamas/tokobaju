@@ -137,3 +137,50 @@ Nama _partials menurut saya lebih jelas dan menggambarkan isinya.
 Kenapa ada garis bawah (underscore) di depannya?
 Ini untuk memudahkan dalam membedakan view dan partial. View akan kita load dari Controller, sedangkan partial akan kita load dari view.
 Biasanya dalam penulisan kode (OOP), sesuatu yang bersifat private dan lokal kadang ditulis dengan garis bawah di depannya.
+
+Menggunakan Partials pada Template
+Kita sudah membuat semua partial yang dibutuhkan:
+Langkah berikutnya, kita harus menggunakannya dalam template.
+
+Silahkan ubah isi views/admin/overview.php
+Pada kode template tersebut, kita me-load partial dengan fungsi $this->load->view().
+
+=========================================================================================================================
+Step 5
+=========================================================================================================================
+# CRUD (Create, Read, Update Delete) adalah fitur dasar yang harus kita buat saat bekerja dengan database.
+Berikut ini daftar pekerjaannya…
+TODO:
+ -Membuat Database;
+ -Konfigurasi Codeigntier
+ -Membuat Model untuk Tabel;
+ -Membuat Controller;
+ -Membuat View;
+ -Membuat Form Add;
+ -Membuat Form Edit;
+ -Membuat Fitur Hapus Data;
+
+# Membuat Database;
+Kolom yang dibutuhkan:
+product_id (Primary Key) bertipe string dengan panjang 64;
+name bertipe string dengan panjang 255.
+price bertipe integer.
+image bertipe string dengan panjang 255.
+description bertipe TEXT.
+
+# Konfigurasi Codeigniter
+Silahkan buka 📄 config/database.php
+Berikutnya, silahkan buka 📄 config/autoload.php.
+	$autoload['libraries'] = array('database', 'session');
+
+Ini artinya, kita akan me-load library database dan session secara otomatis.
+Apa fungsinya?
+Library database akan menyediakan fungsi-fungsi untuk operasi database. Kita butuh ini, karena kita akan menggunakan database dalam aplikasi;
+Library session menyediakan fungsi-fungsi untuk mengakses variabel $_SESSION. Kita butuh ini untuk menampilkan flash message dan membuat login.
+
+# Membuat Model untuk Tabel
+Model merupakan class atau kode yang berhubungan dengan data.
+Di dalam model, kita akan membuat pemodelan data dari database. Sehingga kita akan lebih mudah mengaksesnya.
+Biasanya satu tabel, dibuatkan satu modelnya.
+Silahkan buat file baru di dalam direktori 
+📁 application/model/ dengan nama Product_model.php.

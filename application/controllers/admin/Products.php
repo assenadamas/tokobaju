@@ -14,7 +14,21 @@ class Products extends CI_Controller {
 	{
 		$data["products"] = $this->product_model->getAll(); // ambil data dari model
         $this->load->view("admin/product/list", $data); // kirim data ke view
-	}
+    }
+    
+    public function add()
+    {
+        $product = $this->product_model;
+        $validation = $this->form_validation;
+        $validation->set_rules($product->rules());
+
+        if ($validation->run()) {
+            $product->save();
+            $this->session->set_flashdata('success', 'Berhasil disimpan');
+        }
+
+        $this->load->view("admin/product/new_form");
+    }
 
 }
 

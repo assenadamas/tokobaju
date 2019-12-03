@@ -51,6 +51,16 @@ class Product_model extends CI_Model {
         $this->db->insert($this->_table, $this);
     }
 
+    public function update()
+    {
+        $post = $this->input->post();
+        $this->product_id = $post["id"];
+        $this->name = $post["name"];
+        $this->price = $post["price"];
+        $this->description = $post["description"];
+        $this->db->update($this->_table, $this, array('product_id' => $post['id']));
+    }
+
 }
 
 /* End of file Product_model.php */

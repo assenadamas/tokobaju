@@ -30,6 +30,25 @@ class Products extends CI_Controller {
         $this->load->view("admin/product/new_form");
     }
 
+    public function edit($id = null)
+    {
+        if (!isset($id)) redirect('admin/products');
+       
+        $product = $this->product_model;
+        $validation = $this->form_validation;
+        $validation->set_rules($product->rules());
+
+        if ($validation->run()) {
+            $product->update();
+            $this->session->set_flashdata('success', 'Berhasil disimpan');
+        }
+
+        $data["product"] = $product->getById($id);
+        if (!$data["product"]) show_404();
+        
+        $this->load->view("admin/product/edit_form", $data);
+    }
+
 }
 
 /* End of file Products.php */

@@ -49,6 +49,15 @@ class Products extends CI_Controller {
         $this->load->view("admin/product/edit_form", $data);
     }
 
+    public function delete($id=null)
+    {
+        if (!isset($id)) show_404();
+        
+        if ($this->product_model->delete($id)) {
+            redirect(site_url('admin/products'));
+        }
+    }
+
 }
 
 /* End of file Products.php */

@@ -61,6 +61,11 @@ class Product_model extends CI_Model {
         $this->db->update($this->_table, $this, array('product_id' => $post['id']));
     }
 
+    public function delete($id)
+    {
+        return $this->db->delete($this->_table, array("product_id" => $id));
+    }
+
 }
 
 /* End of file Product_model.php */

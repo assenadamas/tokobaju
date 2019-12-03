@@ -33,7 +33,8 @@
 					</div>
 					<div class="card-body">
 
-						<form action="<?= site_url('admin/product/edit') ?>" method="post" enctype="multipart/form-data">
+						<form action="<?php base_url(" admin/product/edit") ?>" method="post"
+							enctype="multipart/form-data" >
 
 							<input type="hidden" name="id" value="<?php echo $product->product_id?>" />
 
@@ -58,7 +59,7 @@
 
 							<div class="form-group">
 								<label for="name">Photo</label>
-								<input class="form-control-file <?php echo form_error('image') ? 'is-invalid':'' ?>"
+								<input class="form-control-file <?php echo form_error('price') ? 'is-invalid':'' ?>"
 								 type="file" name="image" />
 								<input type="hidden" name="old_image" value="<?php echo $product->image ?>" />
 								<div class="invalid-feedback">
